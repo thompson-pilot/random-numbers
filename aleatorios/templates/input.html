@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Random Numbers</h1>
+<img src="{% static 'aleatorio/img/numbers.png' %}" />
+<p>
+    This application will allow you to choose a number,<br>
+    and than get some random numbers among the number you have entered in the first field.</p>
+<form action="rand" method="POST">
+    {% csrf_token %}
+
+    <p>Enter the bigger number
+        <input type="number" min="0" oninput="this.value = Math.abs(this.value)" name="num1">
+    </p>
+
+    <p>Enter how many random numbers: <input type="number" min="0" oninput="this.value = Math.abs(this.value)"
+            name="num2"></p>
+    <input type="submit">
+</form>
+
+{% endblock %}
