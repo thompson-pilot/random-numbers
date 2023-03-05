@@ -10,7 +10,7 @@ def randomnum(request):
     num1 = request.POST["num1"]
     num2 = request.POST["num2"]
 
-    if num1.isdigit() and num2.isdigit() and num1 > num2:
+    if num1.isdigit() and num2.isdigit() or num1 > num2:
         a = int(num1)
         myGame = [n + 1 for n in range(a)]
 
