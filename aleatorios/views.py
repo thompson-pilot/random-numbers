@@ -15,6 +15,12 @@ def randomnum(request):
         myGame = [n + 1 for n in range(a)]
 
         b = int(num2)
+
+        if a < b:
+            wrong =  "The first number should be greater."
+            context = {'wrong':wrong}
+            return render(request, "result.html", context)
+            
         res = random.sample(myGame, b)
         res.sort()
 
@@ -24,5 +30,5 @@ def randomnum(request):
         )
 
     else:
-        res = "Only digits allowed and the first number should be greater."
+        res = "Only digits are allowed."
         return render(request, "result.html", {"result": res})
