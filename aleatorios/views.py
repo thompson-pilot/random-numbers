@@ -24,9 +24,11 @@ def randomnum(request):
         res = random.sample(myGame, b)
         res.sort()
 
+        greet = "Here are yours numbers!"
+
         # return render(request, "result.html", {"result":res})
         return render(
-            request, "result.html", {"result": (",  ".join(str(e) for e in res))}
+            request, "result.html", {"result": (",  ".join(str(e) for e in res)), 'greet':greet}
         )
 
     else:
